@@ -6,6 +6,7 @@ SELECTEDCOLOR=0
 SELECTEDSTORAGE=0
 
 function showAvailablesizes
+
 {
 
     echo "Apple Store offers two sizes of iPhone12"
@@ -14,6 +15,27 @@ function showAvailablesizes
     echo "3. Return to the previous menu"
     read -p  "Enter your choice:" SELECTEDSIZE  
   }
+  
+  
+  
+  function availablesize
+  {
+  
+    MESSAGE =""
+    case $SELECTEDSIZE in
+    
+      if [ $SELECTEDSIZE -eq 1 ]
+      then SELECTEDSIZE=iPhone pro
+      else
+           SELECTEDSIZE=iphone pro max
+       
+       fi
+       MESSAGE="\$$SELECTEDSIZE is ipohone pro"
+       ;;
+       
+       
+    }
+  
   
   function ShowAvailableColors
   
@@ -27,6 +49,25 @@ function showAvailablesizes
   
   } 
   
+  function availablecolor
+  {
+  
+    MESSAGE =""
+    case $SELECTEDCOLORS
+    
+      if [ $SELECTEDCOLOR -eq 1 ]
+      then SELECTEDCOLOR= Black
+      else
+           SELECTEDCOLOR = Purple
+       
+       fi
+       MESSAGE="\$$SELECTEDCOLOR is Black"
+       ;;
+       
+       
+    }
+
+  
   function showAvailablestorage
   {
  
@@ -38,6 +79,24 @@ function showAvailablesizes
     
     }
 
+
+function availablestorage
+  {
+  
+    MESSAGE =""
+    case $SELECTEDSTORAGE
+    
+      if [ $SELECTEDSTORAGE -eq 1 ]
+      then SELECTEDSTORAGE= 64 GB
+      else
+           SELECTEDSTORAGE = 128 GB
+       
+       fi
+       MESSAGE="\$$SELECTEDSTORAGE is 64 GB"
+       ;;
+       
+       
+    }
   
   
 
