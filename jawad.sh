@@ -1,128 +1,208 @@
-#!/bin/bash
-#Welcome
 
-echo "     Welcome to Apple.com"
+
+#Mac_cost
+show_Macbookair_cost(){
+  Macbookair_cost=999
+}
+show_MacbookPro_cost(){
+  MacbookPro_cost=1299
+}
+show_Imac_cost(){
+  Imac_cost=1799
+}
+
+case $Mac_options in
+Macbookair)
+show_Macbookair_cost
+;;
+MacbookPro)
+show_MacbookPro_cost
+;;
+
+Imac)
+show_Imac_cost
+;;
+esac
+
+
+#Mac_options-----------------------------------------------------
+select(){
+
+Mac_options=(Macbookair MacbookPro Imac Return\to\the\main\menu)
+num=0
+for i in "${Mac-options[@]}"
+do
+ ((num++))
+echo "$num. $i"
+done
+read -p "Please select your Mac: " name
+
+case $name in
+Macbookair)
+select_Macbookair
+;;
+
+MacbookPro)
+select_MacbookPro
+;;
+Imac)
+select_Imac
+;;
+*)
+echo -n "No other options found"
+esac
+}
+
+#Ipad_cost------------------------------
+show_Ipad_cost(){
+Ipad_cost=300
+}
+show_IpadPro_cost(){
+IpadPro_Cost=799
+}
+
+case Ipad_options in
+Ipad)
+show_Ipad_cost
+;;
+IpadPro)
+show_IpadPro_cost
+;;
+esac
+
+
+#Ipad Options-------------------------------------
+select(){
+
+Ipad_options=(Ipad IpadPro Return\to\the\main\menu)
+num=0
+
+for i in "${Ipad_options[@]}"
+
+do
+
+   ((num++))
+   echo "$num. $i"
+done
+
+
+
+read -p "Please select your Ipad: " name
+
+case $name in
+
+Ipad)
+select_Ipad
+  echo -n "You have selected an Ipad"
+;;
+IpadPro)
+select_IpadPro
+echo -n "You have selected an IpadPro"
+;;
+*)
+echo -n "No other options available "
+																	#!/bin/bash
+esac
+}
+
+#Iphone functions-----------------
+
+#Iphone Cost
+show_12_cost(){
+iphone_cost=799
+}
+show_12Pro_cost(){
+iphone_cost=999
+}
+show_12ProMAx_cost(){
+iphone_cost=1099
+}
+case $iphone_selection in
+12)
+    show_12_cost
+;;
+12Pro)
+    show_12Pro_cost
+;;
+ProMax)
+    show_ProMax_cost
+;;
+*)
+   echo -n "No other options found"
+;;
+esac
+
+
+
+select_iphone(){
+Iphone_options=(12 12Pro 12ProMax Return\to\the\main\menu)
+num=0
+for i in " ${iphone_options[@]} "
+do
+   (num++)
+echo "num $i"
+done
+
+read -p  "Please select your Iphone: " Iphone_selection
+case $iphone_selection in
+12)
+select_iphone12
+echo -n "You have selected an Iphone 12"
+;;
+12Pro)
+select_iphone12Pro
+echo -n "You have selected 12Pro "
+;;
+12ProMax)
+select_iphone12ProMax
+echo -n "You have selected 12Pro MAx"
+;;
+*)
+echo -n "No other options found"
+esac
+}
+
+
+#Welcome-----------------------------
+echo  "  --------------------"
+echo  "   Welcome to Apple"
+echo  "  --------------------"
+
+
+
+#User Input--------------------------------
+
+
 echo "-----------------------------------"
-echo "-----------------------------------"
-echo "-----------------------------------"
-
-
-echo " What product would you like to buy today ?"
-
-
-echo "------------------------------------"
-
-#DEVICEOPTIONS
-
-DEVICEOPTION1=$Ipad
-DEVICEOPTION2=$Iphone
-DEVICEOPTION3=$Mac
-
-echo "1. Ipad"
-echo "2. Iphone"
-echo "3. Macbook"
-
-read -p " Please select your device [1-3]: "DEVICEOPTION
-if [ $DEVICEOPTION1 == $Ipad ]; then
-echo " You have selected an Ipad"
-elif [ $DEVICEOPTION2 == $Iphone  ]; then
-echo " You have selected an Iphone"
-elif [  $DEVICEOPTION3 == $Mac  ]; then
-echo "You have selected Macbook"
-else 
-     echo "no other options found"
-fi
-
-
-
-
-echo "------------------------------------"
-#DEVICEMODELS
-#Ipad
-
-DEVICEMODEL1=$Ipad
-DEVICEMODEL2=$Ipadmini
-DEVICEMODEL3=$IpadPro
-
-echo "1. Ipad"
-echo "2. Ipadmini"
-echo "3. IpadPro"
-read -p "please select your device [1-3]:" DEVICEMODEL
-
-if  [ $DEVICEMODEL1 == $Ipad ]; then
-echo " you have selected an Ipad"
-elif [ $DEVICEMODEL2 == $Ipadmini ]; then
-echo " you have selected an Ipadmini"
-elif [ $DEVICEMODEL3 == $IpadPro ]; then
-echo " you have selected an Ipad"
-else
- echo " no other Models found "
-
-
-
-
-
+echo " what product would you like to buy?"
 echo "-----------------------------------"
 
-#IPHONE
-DEVICEMODEL1=$Iphone12
-DEVICEMODEL2=$Iphone12Pro
-DEVICEMODEL3=$Iphone12ProMax
-echo " Apple offers 3 models currently: "
-echo "1. Iphone12 "
-echo "2. Iphone12Pro"
-echo "3. Iphone12ProMax"
-echo "4. Return to previous menu"
-read -p "Click on your choice :" DEVICEMODEL
-if [ $DEVICEMODEL1   == $Iphone12 ]; then
-echo " You have selected an Iphone12"
-elif [ $DEVICEMODEL2 == $Iphone12pro ]; then
-echo " You have selected an Iphone12Pro"
-elif [ $DEVICEMODEL3 == $Iphone12ProMax ]; then
-echo " You have selected an Iphone12ProMax"
-else 
-echo " no other options found"
-fi
+#different device options----------------------
+
+options=(Ipad Iphone Mac)
+
+num=0
+
+for i in "${options[@]}"
+do
+    ((num++))
+    echo "$num. $i"
+done
 
 
+read -p "Please select your device: " name
 
-echo "----------------------------------------"
-
-DEVICEMODEL1=$Macbookair
-DEVICEMODEL2=$MacbookPro
-DEVICEMODEL3=$IMac
-
-echo "1. Macbookair"
-echo "2. MacbookPro"
-echo "3. IMac"
-read -p "Please select your device [1-3]:"DEVICEMODEL 
-if [ $DEVICEMODEL1 == $Macbookair ]; then
-echo " You have selected a Macbook air"
-elif  [  $DEVICEMODEL2 == $MacbookPro ]; then
-echo " You have selected a MacbookPro"
-elif [ $DEVICEMODEL3 == $MacbookPro ]; then
-echo " You have selected an IMac"
-else 
-echo " no other options found"
-fi
-
-
-
-# -------in file jawad.sh.save-------------
-# #!/bin/bash
-# deviceoption1=Ipad
-# deviceoption2=Ipad
-# deviceoption3=Macbook
-# echo "1. Ipad"
-# echo "2. Iphone"
-# echo "3. Macbook"
-
-# read -p " Please select your device [1-3] >> "deviceoption
-# if [ $deviceoption1 == $Ipad ]; then
-# echo " You have selected $Ipad"
-# elif [[ $deviceoption2 == $Iphone ]]; then
-# echo " You have selected $Iphone"
-# elif [[ $deviceoption3 == $Macbook ]]; then
-# echo "You have selected $Macbook"
-# else "no condition met"
-# fi
+case $name in
+ Ipad)
+   echo -n "You have selected an Ipad"
+   ;;
+ Iphone)
+   echo -n "You have selected an Iphone"
+   ;;
+  Mac)
+   echo -n "You have selected a Mac"
+   ;;
+   *)
+   echo -n "no other options found"
+   ;;
+esac
