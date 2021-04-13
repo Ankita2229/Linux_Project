@@ -26,11 +26,12 @@ esac
 
 
 #Mac_options-----------------------------------------------------
+
 select(){
 
-Mac_options=(Macbookair MacbookPro Imac Return\to\the\main\menu)
+Mac_options=(Macbookair MacbookPro Imac Return\ to\ the\ main\ menu)
 num=0
-for i in "${Mac-options[@]}"
+for i in "${Mac_options[@]}"
 do
  ((num++))
 echo "$num. $i"
@@ -39,14 +40,14 @@ read -p "Please select your Mac: " name
 
 case $name in
 Macbookair)
-select_Macbookair
+show_Macbookair_cost
 ;;
 
 MacbookPro)
-select_MacbookPro
+show_MacbookPro_cost
 ;;
 Imac)
-select_Imac
+show_Imac_cost
 ;;
 *)
 echo -n "No other options found"
@@ -74,7 +75,7 @@ esac
 #Ipad Options-------------------------------------
 select(){
 
-Ipad_options=(Ipad IpadPro Return\to\the\main\menu)
+Ipad_options=(Ipad IpadPro Return\ to\ the\ main\ menu)
 num=0
 
 for i in "${Ipad_options[@]}"
@@ -92,11 +93,11 @@ read -p "Please select your Ipad: " name
 case $name in
 
 Ipad)
-select_Ipad
+show_Ipad_cost
   echo -n "You have selected an Ipad"
 ;;
 IpadPro)
-select_IpadPro
+show_IpadPro_cost
 echo -n "You have selected an IpadPro"
 ;;
 *)
@@ -135,7 +136,7 @@ esac
 
 
 select_iphone(){
-Iphone_options=(12 12Pro 12ProMax Return\to\the\main\menu)
+Iphone_options=(12 12Pro 12ProMax Return\ to\ the\ main\ menu)
 num=0
 for i in " ${iphone_options[@]} "
 do
@@ -146,15 +147,15 @@ done
 read -p  "Please select your Iphone: " Iphone_selection
 case $iphone_selection in
 12)
-select_iphone12
+show_12_cost
 echo -n "You have selected an Iphone 12"
 ;;
 12Pro)
-select_iphone12Pro
+show_12ProMax_cost
 echo -n "You have selected 12Pro "
 ;;
 12ProMax)
-select_iphone12ProMax
+select_12ProMax_cost
 echo -n "You have selected 12Pro MAx"
 ;;
 *)
