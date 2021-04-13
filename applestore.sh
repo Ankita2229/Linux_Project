@@ -1,10 +1,10 @@
 #!/bin/bash
 
 select_size () {
-    size=(12  pro pro\ max)
+    iphone_size=(12  pro pro\ max)
 
     n=0
-    for i in "${size[@]}"
+    for i in "${iphone_size[@]}"
     do
 
       ((n++))
@@ -16,10 +16,10 @@ select_size () {
 
 
 select_color () {
-    color=(Black White Purple)
+    iphone_color=(Black White Purple)
 
 n=0
-for i in "${color[@]}"
+for i in "${iphone_color[@]}"
 do
    ((n++))
     echo "$n $i"
@@ -28,10 +28,10 @@ do
 
 
 select_storage () {
-      storage=(128GB 256GB 512GB)
+      iphone_storage=(128GB 256GB 512GB)
 
 n=o
-for i in "${storage[@]}"
+for i in "${iphone_storage[@]}"
 
 do 
 
