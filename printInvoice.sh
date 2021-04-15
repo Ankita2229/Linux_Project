@@ -1,10 +1,23 @@
-#!/bin/bash
+( exec "/path/to/filname/jawad.sh" )
+( exec "/path/to/filname/applestore.sh" )
+( exec "/path/to/filname/gather_user_information.sh" )
 
-USERNAME="XYZ HHT"
-EMAIL="abc@def.com"
+#!/bin/bash
+total=$(expr $ipad_cost + $iphone_cost + $mac_cost + $plan_cost)
+
+if [[ $total -gt "0" ]]; then
+	tax=$(echo $(($total * 43/1000)))
+else
+	tax=0
+fi
+
+
+USERNAME="XYZ HHT" #VARNAME
+EMAIL="abc@def.com" #VAREMAIL
 DATE=$(date)
+
 DEVICES=("IPhone8" "IPhoneX")
-QUANTITY=(1 2)
+QUANTITY=(1 2) #no array present!
 PRICE=(499 899)
 NUMBER_OF_ITEMS=${#DEVICES[@]}
 RETURN_XCHNG_DATE=$(date --date=now+30days)
@@ -35,7 +48,7 @@ done
 
 echo "--------------------------------------------------------"
 echo "                 SubTotal:           \$$SUB_TOTAL        "
-echo "                 Taxes@20%:          \$$TAXES        "
+echo "                 Taxes@4.3%:          \$$TAXES        "
 echo "                 Total:              \$$TOTAL_AMT        "
 echo "--------------------------------------------------------"
 echo -e "\n\nReturn/Exchange Policy: Last date for any\nexchange or return is 30 days from now i.e\n$RETURN_XCHNG_DATE"
@@ -48,5 +61,6 @@ printInvoice
 
 
 
+( exec "/path/to/filname/customer_feedback.sh" )
 
 
