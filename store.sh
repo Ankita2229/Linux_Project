@@ -6,6 +6,42 @@ update_array(){
 }
 
 
+buy_option(){
+  options=(Ipad Iphone Mac)
+
+  num=0
+
+  for i in "${options[@]}"
+  do
+      ((num++))
+      echo "$num. $i"
+  done
+
+
+  read -p "Please select your device: " name
+
+
+  case $name in
+
+   Ipad)
+    select_Ipad
+     
+     ;;
+   Iphone)
+   select_Iphone
+     
+     ;;
+    Mac)  
+    select_Macbook
+   
+     ;;
+     *)
+     echo -n "no other options found"
+     ;;
+  esac
+}
+
+
 continue_case(){
   read -p "Do you wish to continue with another purchase? [Y/N]: " select
   if [[ $select == y || $select == Y ]]; then
@@ -32,6 +68,8 @@ RETURN_XCHNG_DATE=$(date --date=now+30days)
 
 function printInvoice
 {
+
+
 
 total=$(expr $ipad_cost + $iphone_cost + $mac_cost + $PLANCOST)
 
