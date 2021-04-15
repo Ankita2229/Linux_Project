@@ -33,8 +33,6 @@ RETURN_XCHNG_DATE=$(date --date=now+30days)
 function printInvoice
 {
 
-
-
 total=$(expr $ipad_cost + $iphone_cost + $mac_cost + $PLANCOST)
 
 if [[ $total -gt "0" ]]; then
@@ -283,39 +281,7 @@ echo " what product would you like to buy?"
 echo "-----------------------------------"
 
 #different device options----------------------
-
-options=(Ipad Iphone Mac)
-
-num=0
-
-for i in "${options[@]}"
-do
-    ((num++))
-    echo "$num. $i"
-done
-
-
-read -p "Please select your device: " name
-
-
-case $name in
-
- Ipad)
-  select_Ipad
-   
-   ;;
- Iphone)
- select_Iphone
-   
-   ;;
-  Mac)  
-  select_Macbook
- 
-   ;;
-   *)
-   echo -n "no other options found"
-   ;;
-esac
+buy_option
 
 
 
