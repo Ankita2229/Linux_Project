@@ -5,29 +5,6 @@ update_array(){
   ((j++))
 }
 
-check_prev_ipad(){
-  if [[ ipad_cost != 0 ]]; then
-    ipad_cost=$(expr $ipad_cost + $curr_cost)
-  else
-    ipad_cost=$ipad_cost
-  fi
-}
-
-check_prev_mac(){
-  if [[ mac_cost != 0 ]]; then
-    mac_cost=$(expr $mac_cost + $curr_cost)
-  else
-    mac_cost=$mac_cost
-  fi
-}
-
-check_prev_iphone(){
-  if [[ iphone_cost != 0 ]]; then
-    iphone_cost=$(expr $iphone_cost + $curr_cost)
-  else
-    iphone_cost=$iphone_cost
-  fi
-}
 
 continue_case(){
   read -p "Do you wish to continue with another purchase? [Y/N]: " select
@@ -167,7 +144,7 @@ select_Macbook(){
       # show_Macbookair_cost
       curr_cost=1099
       update_array
-      check_prev_mac
+      # check_prev_mac
       echo -n "You have selected a Macbookair and the price is 999"
       continue_case
       ;;
