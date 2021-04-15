@@ -10,18 +10,18 @@ show_Imac_cost(){
   Imac_cost=1799
 }
 
-case $Mac_options in
-Macbookair)
-show_Macbookair_cost
-;;
-MacbookPro)
-show_MacbookPro_cost
-;;
+#case $Mac_options in
+#Macbookair)
+#show_Macbookair_cost
+#;;
+#MacbookPro)
+#show_MacbookPro_cost
+#;;
 
-Imac)
-show_Imac_cost
-;;
-esac
+#Imac)
+#show_Imac_cost
+#;;
+#esac
 
 
 #Mac_options-----------------------------------------------------
@@ -38,21 +38,30 @@ done
 read -p "Please select your Mac: " name
 
 case $name in
-Macbookair)
+1)
 show_Macbookair_cost
-echo -n "You have selected a Macbookair and the price is 999"
+echo -e "---------------------------------------------------"
+echo -e "You have selected a Macbookair and the price is 999\n"
+echo -e "---------------------------------------------------"
 ;;
-MacbookPro)
+2)
 show_MacbookPro_cost
-echo -n  " You have selected a MacbookPro and the price is 1299"
+echo -e "---------------------------------------------------"
+echo -e  " You have selected a MacbookPro and the price is 1299\n"
+echo -e "---------------------------------------------------"
 ;;
-Imac)
+3)
 show_Imac_cost
-echo -n " You have selected an Imac and thge cost is 1799" 
-;;
+echo -e "---------------------------------------------------"
+echo -e " You have selected an Imac and the cost is 1799\n" 
+echo -e "---------------------------------------------------"
 
+;;
+4)
+	main_menu
+	;;
 *)
-echo -n "No other options found"
+echo -e "Invalid Choice\n"
 esac
 }
 
@@ -64,14 +73,14 @@ show_IpadPro_cost(){
 IpadPro_Cost=799
 }
 
-case $Ipad_options in
-Ipad)
-show_Ipad_cost
-;;
-IpadPro)
-show_IpadPro_cost
-;;
-esac
+#case $Ipad_options in
+#Ipad)
+#show_Ipad_cost
+#;;
+#IpadPro)
+#show_IpadPro_cost
+#;;
+#esac
 
 
 #Ipad Options-------------------------------------
@@ -94,17 +103,25 @@ read -p "Please select your Ipad: " name
 
 case $name in
 
-Ipad)
+1)
 show_Ipad_cost
-  echo -n "You have selected an Ipad and the cost is 399 "
+echo -e "---------------------------------------------------"
+echo -e "You have selected an Ipad and the cost is 399\n "
+echo -e "---------------------------------------------------"
+
 ;;
-IpadPro)
+2)
 show_IpadPro_cost
-echo -n "You have selected an IpadPro and the cost is 799"
+echo -e "---------------------------------------------------"
+echo -e "You have selected an IpadPro and the cost is 799\n"
+echo -e "---------------------------------------------------"
+
 ;;
+3)
+	main_menu
+	;;
 *)
-echo -n "No other options available "
-																	#!/bin/bash
+echo -e "Invalid Choice entered\n "
 esac
 }
 
@@ -117,28 +134,28 @@ Iphone_cost=799
 show_12Pro_cost(){
 Iphone_cost=999
 }
-show_12ProMAx_cost(){
+show_12ProMax_cost(){
 Iphone_cost=1099
 }
 
- case $Iphone_options in
-12)
-   show_12_cost
-;;
+# case $Iphone_options in
+#12)
+#   show_12_cost
+#;;
 
-12Pro)
-    show_12Pro_cost
-;;
+#12Pro)
+#    show_12Pro_cost
+#;;
 
-ProMax)
-      show_ProMax_cost
-;;
+#ProMax)
+ #     show_ProMax_cost
+#;;
 
-*)
-   echo -n "No other options found"
-;;
+#*)
+#   echo -n "No other options found"
+#;;
 
-esac
+#esac
 
 
 
@@ -149,53 +166,61 @@ select_Iphone(){
 Iphone_options=(12 12Pro 12ProMax Return\ to\ the\ main\ menu)
 num=0
 
-for i in " $Iphone_options[@]} "
+for i in "${Iphone_options[@]}"
 do
    ((num++))
 
-echo "num $i"
+echo "$num.$i"
 done
 
 
-read -p  "Please select your Iphone: " name
+read -p  "Please select Iphone model you wish to purchase: " name
 
 case $name in
-12)
+1)
 show_12_cost
+echo -e "---------------------------------------------------"
+echo -e "You have selected an Iphone 12 and the cost is 799\n"
+echo -e "---------------------------------------------------"
 
-echo -n "You have selected an Iphone 12 and the cost is 799"
 ;;
-12Pro)
+2)
+show_12Pro_cost
+echo -e "---------------------------------------------------"
+echo -e "You have selected 12Pro and the cost is 999\n "
+echo -e "---------------------------------------------------"
+
+;;
+
+3)
 show_12ProMax_cost
-
-echo -n "You have selected 12Pro and the cost is 999 "
+echo -e "---------------------------------------------------"
+echo -e "You have selected 12Pro Max and the cost is 1099\n"
+echo -e "---------------------------------------------------"
 
 ;;
-
-12ProMax)
-select_12ProMax_cost
-
-echo -n "You have selected 12Pro MAx and the cost is 1099"
-;;
-
+4)
+	main_menu
+	;;
 *)
 
-echo -n "No other options found"
+echo -e "Invalid choice"
 
 esac
 }
 
-
+function welcome()
+{
 #Welcome-----------------------------
 echo  "  --------------------"
 echo  "   Welcome to Apple"
 echo  "  --------------------"
-
+}
 
 
 #User Input--------------------------------
-
-
+function main_menu()
+{
 echo "-----------------------------------"
 echo " what product would you like to buy?"
 echo "-----------------------------------"
@@ -218,49 +243,57 @@ read -p "Please select your device: " name
 
 case $name in
 
- Ipad)
-select_Ipad
-   echo -n "You have selected an Ipad"
+ 1)
+	echo -e "---------------------------------------------------"
+	 echo -e "\nIpad has the following models available:  "
+	select_Ipad
+  
    ;;
- Iphone)
- select_Iphone
-   echo -n "You have selected an Iphone"
+ 2)
+	echo -e "---------------------------------------------------"
+	echo -e "\nIphone has the following models available:  "
+	select_Iphone
+   
    ;;
-  Mac)  
-select_Macbook
- echo -n "You have selected a Mac"
+ 3)  
+	echo -e "---------------------------------------------------"
+	echo -e "\nMac has the following models available:  "
+	select_Macbook
+ 
    ;;
    *)
-   echo -n "no other options found"
+  	 echo -e "Invalid Choice\n"
    ;;
 esac
+}
 
-
+welcome
+main_menu
 
 
 select_size () {
-    iphone_size=(12  pro pro\ max)
+ iphone_size=(12  pro pro\ max)
 
-    n=0
-    for i in "${iphone_size[@]}"
-    do
+ n=0
+  for i in "${iphone_size[@]}"
+  do
 
-      ((n++))
-      echo "$n $i"
-      done
+    ((n++))
+     echo "$n. $i"
+     done
 }
 
 
 
 
 select_color () {
-    iphone_color=(Black White Purple)
+    iphone_color=(Black White Grey Silver Gold RoseGold)
 
 n=0
 for i in "${iphone_color[@]}"
 do
    ((n++))
-    echo "$n $i"
+    echo "$n. $i"
     done
 }
 
@@ -274,23 +307,27 @@ for i in "${iphone_storage[@]}"
 do 
 
  ((n++))
-  echo "$n $i"
+  echo "$n. $i"
   done
 
 }
 
+function select_prefrences()
+{
+#select_size
+#read -p " what size do you like to get?"  Selected_Size
 
-select_size
-read -p " what size do you like to get?"  Selected_Size
+echo "You can choose from the following color prefrences for your device: "
 select_color
-read -p "what color do you like to get?" Selected_Color
+read -p "what color do you like to get? " Selected_Color
+echo "You can choose the storage options for your device: "
 select_storage
-read -p "what storage do you like to get?" Selected_Storage
+read -p "what storage do you like to get? " Selected_Storage
+echo "----------------------------------------------------------------"
 
+}
 
-
-#!/bin/bash
-
+select_prefrences
 SELECTEDPLAN=0
 SELECTEDCOVERAGE=0
 PLANCOST=0
