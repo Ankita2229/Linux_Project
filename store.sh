@@ -152,7 +152,7 @@ select_Macbook(){
       # show_MacbookPro_cost
       curr_cost=1299
       update_array
-      check_prev_mac
+      # check_prev_mac
       echo -n  " You have selected a MacbookPro and the price is 1299"
       continue_case
       ;;
@@ -160,7 +160,7 @@ select_Macbook(){
       # show_Imac_cost
       curr_cost=1599
       update_array
-      check_prev_mac
+      # check_prev_mac
       echo -n " You have selected an Imac and thge cost is 1799" 
       continue_case
       ;;
@@ -194,7 +194,7 @@ select_Ipad(){
     curr_cost=499
     # show_Ipad_cost
     update_array
-    check_prev_ipad
+    # check_prev_ipad
     echo -n "You have selected an Ipad and the cost is 499 "
     continue_case
     ;;
@@ -202,7 +202,7 @@ select_Ipad(){
     curr_cost=1399
     # show_IpadPro_cost
     update_array
-    check_prev_ipad
+    # check_prev_ipad
     echo -n "You have selected an IpadPro and the cost is 799"
     continue_case
     ;;
@@ -232,7 +232,7 @@ select_Iphone(){
       # show_12_cost
       curr_cost=799
       update_array
-      check_prev_iphone
+      # check_prev_iphone
       iphone_pref
       echo -n "You have selected an Iphone 12 and the cost is 799"
       continue_case
@@ -241,7 +241,7 @@ select_Iphone(){
       # show_12ProMax_cost
       curr_cost=999
       update_array
-      check_prev_iphone
+      # check_prev_iphone
       iphone_pref
       echo -n "You have selected 12Pro and the cost is 999 "
       continue_case
@@ -251,7 +251,7 @@ select_Iphone(){
       # select_12ProMax_cost
       curr_cost=1099
       update_array
-      check_prev_iphone
+      # check_prev_iphone
       iphone_pref
       echo -n "You have selected 12Pro MAx and the cost is 1099"
       continue_case
